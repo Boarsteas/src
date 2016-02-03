@@ -3,17 +3,17 @@ package Server;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
+
 /*ww  w. j  av  a  2 s .  com*/
 public class MyServer {
     public static void main(String[] args) throws Exception {
-        int mcPort = 12345;
+        int mcPort = 32012;
         String mcIPStr = "230.1.1.1";
         MulticastSocket mcSocket = null;
         InetAddress mcIPAddress = null;
         mcIPAddress = InetAddress.getByName(mcIPStr);
         mcSocket = new MulticastSocket(mcPort);
-        System.out.println("Multicast Receiver running at:"
-                + mcSocket.getLocalSocketAddress());
+        System.out.println("Multicast Receiver running at:"+ mcSocket.getLocalSocketAddress());
         mcSocket.joinGroup(mcIPAddress);
 
         DatagramPacket packet = new DatagramPacket(new byte[1024], 1024);

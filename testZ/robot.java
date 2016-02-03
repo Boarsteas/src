@@ -5,9 +5,14 @@ import java.awt.event.KeyEvent;
 
 public class robot {
 
-    public static void keypress(String ein){
+    public static boolean keypress(String ein){
         try {
             Robot r = new Robot();
+            r.setAutoDelay(6000);
+          /*  if (ein == null) {
+                return false;}
+            */
+
             switch (ein) {
                 case "p1":
                     r.keyPress(KeyEvent.VK_1);
@@ -42,7 +47,7 @@ public class robot {
 
 
     }
-    }
+
    /* try {
 
         Robot robot = new Robot();
@@ -75,7 +80,11 @@ public class robot {
     }*/
 
     public static void main(String[] args) {
-        Thread.sleep(300);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         keypress("p1");
         keypress("p2");
         keypress("p3");
